@@ -4,6 +4,9 @@ import LoadingIcon from './LoadingIcon'
 import axios from 'axios';
 import {ordinals} from '../utils';
 
+const winCutoff = 2;
+const resultArray = [["Option 1", [1, 1, 2]], ["Option 1", [1, undefined, undefined]], ["Option 1", [1, undefined, undefined]]];
+
 class PollResults extends Component{
     state = {
         poll: null,
@@ -101,6 +104,47 @@ class PollResults extends Component{
         }
         return <div style={{fontSize: 20, padding: 10}}>No winner has been determined yet...</div>
     }
+    renderResultsTable(){
+        if(this.state.poll.winner){
+            const{resultArray, winCutoff} = this.state.poll;
+            return(
+                <div style={{margin: 'auto', maxWidth: 1200, overflowX: 'scroll'}}>
+                    <table className='result-table'>
+                        <tbody>
+                            <tr>
+                                <td style={{letterSpacing: 2, fontWeight: 'bold'}} colSpan={resultArray[0][1].length + 1}>Vote Counts by Elimination Round</td>
+                            </tr>
+                            <tr>
+                                <td className='option-cell' style={{fontWeight: 'normal'}}>OPTIONS</td>
+                                {resultArray[0][1].map( (res, i) => {
+                                    return <td className='round-cell' key={`round-cell${i}`}>Round {i+1}</td>
+                                })}
+                            </tr>
+                            {resultArray.map( (val, i) => {
+                                return(
+                                    <tr key={`${val[0]}${i}`}>
+                                        <td className='option-cell'>{val[0]}</td>
+                                        {val[1].map( (cell, index) => {
+                                            let key = `cell-${cell}-${index}`;
+                                            if(cell >= winCutoff){
+                                                return <td key={key} className='win-cell'>{cell}</td>
+                                            }
+                                            else if(val[1][index+1] === undefined && cell !== undefined){
+                                                return <td key={key} className='elimination-cell'>{cell}</td>
+                                            }
+                                            else{
+                                                return <td key={key}>{cell || '-'}</td>
+                                            }
+                                        })}
+                                    </tr>
+                                )
+                            })}
+                        </tbody>
+                    </table>
+                </div>
+            )
+        }
+    }
     renderContent() {
         if(this.state.error){
             return (
@@ -115,6 +159,9 @@ class PollResults extends Component{
                         <div style={{margin: '70px auto 20px', fontSize: 24, letterSpacing: 4}}>{this.state.poll.title}</div>
                         <div className='winner-section'>
                             {this.renderWinner()}
+                        </div>
+                        <div>
+                            {this.renderResultsTable()}
                         </div>
                         <div className='progress box-shadow'>
                             <span>{((this.state.poll.votesReceived/this.state.poll.totalVoters)*100).toFixed(0)}% votes received</span>

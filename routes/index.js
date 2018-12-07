@@ -21,6 +21,7 @@ module.exports = app => {
                 options,
                 voters,
                 totalVoters: voters.length,
+                winCutoff: voters.length % 2 === 0 ? Math.ceil(voters.length/2) + 1 : Math.ceil(voters.length/2),
                 dateCreated: Date.now()
             });
             let savedPoll = await poll.save();
@@ -69,9 +70,11 @@ module.exports = app => {
             }).exec();
             if(poll){
                 if(poll.votesReceived === poll.totalVoters){
-                    const winner = calculateWinner(poll);
+                    const results= calculateWinner(poll);
+                    const winner = results[0];
+                    const resultArray = Object.keys(results[1]).map( key => [key, results[1][key]]);
                     const completedPoll = await Poll.findOneAndUpdate({_id: pollID},
-                                                    {$set: {'allVotesReceived' : true, 'winner': winner}});
+                                                    {$set: {'allVotesReceived' : true, 'winner': winner, 'resultArray': resultArray}});
                     sendResultsEmails(completedPoll);
                 }
                 res.sendStatus(202);

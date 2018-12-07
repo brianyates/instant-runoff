@@ -11,7 +11,9 @@ const pollSchema = new Schema({
     totalVoters: Number,
     votesReceived: {type: Number, default: 0},
     allVotesReceived: {type: Boolean, default: false},
-    winner: {type: String, default: null}
+    winner: {type: String, default: null},
+    winCutoff: Number,
+    resultArray: Array
 });
 
 mongoose.model('polls', pollSchema);

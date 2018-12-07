@@ -549,9 +549,13 @@ a{
   box-shadow: 0 2px 8px 0 rgba(0,0,0,.2), 0 3px 4px 0 rgba(0,0,0,.14), 0 3px 3px 1px rgba(0,0,0,.12);
 }
 
-.table{
+.table, .result-table{
   border-collapse: collapse;
   margin: auto;
+}
+.result-table{
+  margin-bottom: 20px;
+  min-width: 400px;
 }
 .table td{
   padding: 3px 4px 0 4px;
@@ -560,6 +564,29 @@ a{
 .table td:last-child{
   text-align: left;
 }
+.result-table td{
+  border: 1px solid #fff;
+  padding: 5px 10px;
+  font-size: 16px;
+}
+.result-table td.win-cell{
+  background-color: #368236;
+  color: #fff;
+}
+.result-table td.elimination-cell{
+  background-color: #863c3c;
+  color: #fff;
+}
+.result-table td.option-cell{
+  color: #ffc107;
+  background-color: #333;
+  font-weight: bold;
+}
+.result-table td.round-cell{
+  color: #fff;
+  background-color: #555;
+}
+
 .email{
   font-size: 16px;
   font-weight: bold;

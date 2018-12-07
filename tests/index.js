@@ -1,7 +1,7 @@
 const calculateWinner = require('../routes/routeHelpers');
 
 const newPoll = {
-
+  "winCutoff": 2,
   "options": [
       "Eman",
       "Jim",
@@ -23,9 +23,9 @@ const newPoll = {
       },
       {
         "selections": [
-            "Jamie",
-            "Jim",
             "Kevin",
+            "Jim",
+            "Jamie",
             "JMart",
             "Yezo",
             "Eman"
@@ -33,10 +33,10 @@ const newPoll = {
     },
     {
         "selections": [
-            "Jim",
-            "Eman",
-            "Kevin",
             "Jamie",
+            "Kevin",
+            "Eman",
+            "Jim",
             "Yezo",
             "JMart"
         ]
