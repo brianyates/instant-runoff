@@ -25,9 +25,10 @@ class PollSelectionModal extends Component {
     }
     renderSelections = () => {
        return this.props.selections.map( (selection, index) => {
-            return(<div key={`${selection}${index}`}>
-                        <div><strong>{ordinals[index]} Choice: </strong>{selection}</div>
-                    </div>
+            return(<tr key={`r-${index}`}>
+                        <td><strong>{ordinals[index]} Choice:</strong></td>
+                        <td>{selection}</td>
+                    </tr>
                 )
         })
     }
@@ -41,7 +42,11 @@ class PollSelectionModal extends Component {
                     <div style={{borderBottom: '1px solid #ddd', borderTop: '1px solid #ddd', padding: '10px 10px 20px 10px', margin: '20px auto'}}>
                         <div style={{color: '#444', letterSpacing: 3, marginBottom: 20, fontSize: 22, textDecoration: 'underline'}}>YOUR SELECTIONS</div>
                         <div>
-                            {this.renderSelections()}
+                            <table className='table'>
+                                <tbody>
+                                    {this.renderSelections()}
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                     {this.state.submitting ? <div className='text-right p-5'><LoadingIcon /></div> : (<div className='text-right'>

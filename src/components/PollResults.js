@@ -36,12 +36,12 @@ class PollResults extends Component{
                             {voters.map( (v,i) => {
                                 return (<div key={`voter${i}`} className='col-3 p-10'>
                                             <div className='voter box-shadow'>
-                                                <div className='email'>{v.email}</div>
+                                                <div className='email' style={{fontSize: 18}}>{v.email}</div>
                                                 <table className='table'>
                                                     <tbody>
                                                         {v.selections.map( (sel, i) => {
                                                             return (<tr key={`row-${i}`}>
-                                                                        <td>{ordinals[i]} Choice:</td>
+                                                                        <td><strong>{ordinals[i]} Choice:</strong></td>
                                                                         <td>{sel}</td>
                                                                     </tr>
                                                             )

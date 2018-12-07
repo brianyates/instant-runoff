@@ -20,7 +20,7 @@ class FormInput extends Component{
                 <div className='input-label-container'>
                 <div className={`label${this.state.focused || this.props.value ? ' focused' : ''}`}>{label}</div>
                     <input 
-                        autoComplete="off"
+                        autoComplete={name==="emails" || name==="createdBy" ? name : "off"}
                         className='form-input' 
                         type={type} 
                         name={name} 

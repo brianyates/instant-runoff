@@ -1,0 +1,8 @@
+module.exports = {
+    MONGO_URI: process.env.MONGO_URI,
+    SENDGRID_SECRET_KEY: process.env.SENDGRID_SECRET_KEY,
+    VOTER_EMAIL_TEMPLATE_ID: process.env.VOTER_EMAIL_TEMPLATE_ID,
+    RESULTS_EMAIL_TEMPLATE_ID: process.env.RESULTS_EMAIL_TEMPLATE_ID,
+    MAIN_URI: process.env.MAIN_URI,
+    EMAIL_FROM_FIELD: process.env.EMAIL_FROM_FIELD
+}

@@ -213,6 +213,16 @@ a{
 }
 .landing-section-2{
   text-align: left;
+  padding: 0 10px;
+}
+.landing-big-text{
+  font-size: 54px;
+  letter-spacing: 2px;
+  margin-bottom: 30px;
+}
+.landing-small-text{
+  font-size: 26px;
+  letter-spacing: 1px;
 }
 .col-3{
   width: 33.333333333333333333333%
@@ -272,7 +282,7 @@ a{
 }
 .input-container .error-msg{
   color: #eaa1a1;
-  font-size: 12px;
+  font-size: 14px;
   padding: 2px 3px;
 }
 .input-label-container {
@@ -408,8 +418,18 @@ a{
   .landing-section-1, .landing-section-2{
     text-align: center;
   }
+  .landing-section-1{
+    padding: 80px 20px 20px;
+  }
   .landing-section-2 > div {
     margin: auto;
+  }
+  .landing-big-text{
+    font-size: 40px;
+  }
+  .landing-small-text{
+    font-size: 22px;
+    padding-bottom: 30px;
   }
 }
 .loading-container > div{
@@ -527,7 +547,7 @@ a{
 
 .table{
   border-collapse: collapse;
-  width: 100%;
+  margin: auto;
 }
 .table td{
   padding: 3px;

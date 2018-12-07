@@ -8,6 +8,16 @@ export const inputValidation = input => {
     return null;
 }
 
+export const nameValidation = input => {
+    if(!input){
+        return 'This is a required field';
+    }
+    else if (/^[a-z ,.'-]+$/i.test(input) === false){
+        return "Please enter your full name"
+    }
+    return null;
+}
+
 export const emailValidation = emails =>{
     if (!emails){
         return 'This is a required field';

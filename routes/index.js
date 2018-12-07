@@ -1,23 +1,30 @@
 const mongoose = require('mongoose');
 const Poll = mongoose.model('polls');
 const calculateWinner = require('./routeHelpers');
+const {sendVoterEmails, sendResultsEmails} = require('../services/mailerActions');
+
+const capitalizeName = fullName =>{
+    return fullName.split(' ').map(name => (name[0].toUpperCase() + name.slice(1))).join(' ')
+}
 
 module.exports = app => {
     
     //Create a poll
     app.post('/api/create-poll',  async (req, res) => {
         try{
-            let {emails, title, options} = req.body;
+            let {createdBy, emails, title, options} = req.body;
             options = options.filter( option => option.length > 0);
             voters = emails.split(',').map(email => ({ email: email.trim() }));
             const poll = new Poll({
+                createdBy: capitalizeName(createdBy),
                 title,
                 options,
                 voters,
                 totalVoters: voters.length,
                 dateCreated: Date.now()
             });
-            await poll.save();
+            let savedPoll = await poll.save();
+            sendVoterEmails(savedPoll);
             res.status(201).send(poll.id);
         }
         catch(err){
@@ -68,10 +75,11 @@ module.exports = app => {
             if(poll){
                 if(poll.votesReceived === poll.totalVoters){
                     const winner = calculateWinner(poll);
-                    const completedPoll = await Poll.updateOne({_id: pollID},
-                                                    {$set: {'allVotesReceived' : true, 'winner': winner}})
+                    const completedPoll = await Poll.findOneAndUpdate({_id: pollID},
+                                                    {$set: {'allVotesReceived' : true, 'winner': winner}});
+                    sendResultsEmails(completedPoll);
                 }
-                res.sendStatus(202)
+                res.sendStatus(202);
             }
             else{
                 res.sendStatus(401);

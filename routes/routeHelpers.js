@@ -1,3 +1,5 @@
+const NO_MAJORITY_MSG = 'No majority, vote again!';
+
 const calculateWinner = poll => {
     const {voters, options} = poll;
     let winner = null;
@@ -31,6 +33,7 @@ const calculateWinner = poll => {
         let minValue = null;
 
         //Set the winner if it exists, otherwise determine which option has the lowest amount of votes and remove it.
+        let countValues = [];
         Object.keys(counts).forEach( i => {
             if(counts[i] > winCutoff){
                 winner = i;
@@ -41,7 +44,14 @@ const calculateWinner = poll => {
                     minKey = i;
                 }
             }
+            countValues.push(counts[i]);
         });
+
+        //If all the counts are the same, no majority is reached so exit the loop
+        let allValuesAreEqual = countValues.every(value => value===countValues[0]);
+        if(allValuesAreEqual && !winner){
+            return NO_MAJORITY_MSG;
+        }
 
         //Remove the option with the least amount of votes from every voter array
         votes.forEach( vote => {
@@ -49,7 +59,7 @@ const calculateWinner = poll => {
         })
         delete counts[minKey];
     }
-    return winner || 'No majority, vote again!';
+    return winner || NO_MAJORITY_MSG;
 }
 
 module.exports = calculateWinner;

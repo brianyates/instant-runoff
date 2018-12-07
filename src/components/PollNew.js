@@ -4,7 +4,7 @@ import Navbar from './Navbar';
 import Icon from './Icon';
 import PollConfirmationModal from './PollConfirmationModal';
 import PollCreatedModal from './PollCreatedModal';
-import {inputValidation, emailValidation} from '../utils';
+import {inputValidation, emailValidation, nameValidation} from '../utils';
 
 class PollNew extends Component {
     state = {
@@ -12,11 +12,13 @@ class PollNew extends Component {
         values: {
             emails: '',
             title: '',
+            createdBy: '',
             options: ['', '', '', '', '', '', '', '', '', '']
         },
         errors: {
             emails: '',
             title: '',
+            createdBy: '',
             options: ['', '', '', '', '', '', '', '', '', '']
         },
         hasError: false,
@@ -42,6 +44,7 @@ class PollNew extends Component {
         let errors = Object.assign({}, this.state.errors);
         errors.emails = emailValidation(this.state.values.emails);
         errors.title = inputValidation(this.state.values.title);
+        errors.createdBy = nameValidation(this.state.values.createdBy);
         if(errors.emails || errors.title) {hasError = true}
         for (let i = 0; i < this.state.inputCount; i++){
             errors.options[i] = inputValidation(this.state.values.options[i]);
@@ -112,6 +115,16 @@ class PollNew extends Component {
                     <div className='p-10 text-center' style={{margin: 'auto', maxWidth: 600}}>*Limit 10 voting options per poll. Please separate each vote recipient's email address with a comma.</div>
                     <div className='form-container'>
                         <form onSubmit={this.handleSubmit}>
+                            <input type="hidden" value="something" />
+                            <FormInput 
+                                type='text' 
+                                name='createdBy' 
+                                label='Enter your full name' 
+                                value={this.state.values.createdBy} 
+                                error={this.state.errors.createdBy}
+                                submitted={this.state.submitted}
+                                handleChange={this.handleChange} 
+                            />
                             <FormInput 
                                 type='text' 
                                 name='emails' 
