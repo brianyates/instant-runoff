@@ -4,8 +4,6 @@ import PollSelectionModal from './PollSelectionModal';
 import SuccessModal from './SuccessModal';
 import {ordinals} from '../utils';
 
-//http://localhost:3000/poll/5c02d6eb82bf802145f7e9b6/voter/5c02d6eb82bf802145f7e9b7
-
 class PollSelections extends Component{
     state = {
         draggables: [],

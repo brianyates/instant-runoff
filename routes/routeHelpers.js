@@ -1,4 +1,4 @@
-const NO_MAJORITY_MSG = 'No majority, vote again!';
+const NO_MAJORITY_MSG = 'No majority!';
 
 const calculateWinner = poll => {
     const {voters, options} = poll;
@@ -39,20 +39,18 @@ const calculateWinner = poll => {
                 winner = i;
             }
             else{
-                if(!minKey || counts[i] < minKey){
+                if(minKey===null || counts[i] < minValue){
                     minValue = counts[i];
                     minKey = i;
                 }
             }
             countValues.push(counts[i]);
         });
-
         //If all the counts are the same, no majority is reached so exit the loop
         let allValuesAreEqual = countValues.every(value => value===countValues[0]);
         if(allValuesAreEqual && !winner){
             return NO_MAJORITY_MSG;
         }
-
         //Remove the option with the least amount of votes from every voter array
         votes.forEach( vote => {
             vote.splice(vote.indexOf(minKey),1);
