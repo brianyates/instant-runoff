@@ -36,6 +36,11 @@ class PollSelectionParent extends Component{
             )
         }
         else if(this.state.poll){
+            if(this.state.poll.voted){
+                return(<div className='p-10 text-center font-18'>
+                            You have already voted in this poll. <a style={{color: '#fff', textDecoration: 'underline'}} href={`/poll/${this.pollID}/results`}>Click here to view the results</a>.
+                        </div>)
+            }
             return <PollSelections 
                     pollID={this.pollID}
                     voterID={this.voterID}

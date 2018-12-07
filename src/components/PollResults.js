@@ -36,7 +36,7 @@ class PollResults extends Component{
                             {voters.map( (v,i) => {
                                 return (<div key={`voter${i}`} className='col-3 p-10'>
                                             <div className='voter box-shadow'>
-                                                <div className='email' style={{fontSize: 18}}>{v.email}</div>
+                                                <div className='email font-18'>{v.email}</div>
                                                 <table className='table'>
                                                     <tbody>
                                                         {v.selections.map( (sel, i) => {

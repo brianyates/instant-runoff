@@ -40,12 +40,7 @@ module.exports = app => {
             const poll = await Poll.findOne({_id: pollID})
             const voter = poll.voters.id(voterID);
             if(voter){
-                if(voter.voted){
-                    res.sendStatus(401);
-                }
-                else{
-                    res.send({title: poll.title, options: poll.options})
-                }
+                res.send({title: poll.title, options: poll.options, voted: voter.voted});
             }
             else{
                 res.sendStatus(400);

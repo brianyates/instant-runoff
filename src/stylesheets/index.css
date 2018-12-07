@@ -377,7 +377,6 @@ a{
   border: 1px solid #ddd;
   border-radius: 5px;
   background-color: #505050;
-  border: 1px solid #444;
   overflow: hidden;
   max-width: 500px;
   margin: auto;
@@ -550,7 +549,7 @@ a{
   margin: auto;
 }
 .table td{
-  padding: 3px;
+  padding: 3px 4px 0 4px;
   text-align: right;
 }
 .table td:last-child{
