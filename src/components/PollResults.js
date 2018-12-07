@@ -64,7 +64,7 @@ class PollResults extends Component{
                                 return (<div key={`voter${i}`} className='col-3 p-10'>
                                             <div className='voter box-shadow'>
                                                 <div className='email'>{v.email}</div>
-                                                <div title='Voter selections are hidden until all votes are received' style={{cursor: 'help', marginTop: 10, color: '#777', fontSize: 16}}>(RESULTS HIDDEN)</div>
+                                                <div title='Voter selections are hidden until all votes are received' style={{cursor: 'help', marginTop: 10, color: '#e6e6e6', fontSize: 16}}>(RESULTS HIDDEN)</div>
                                             </div>
                                         </div>)
                             })}
@@ -112,7 +112,7 @@ class PollResults extends Component{
         else if(this.state.poll){
             return (<div className='text-center'>
                         <h1 style={{borderBottom: '1px solid #f9f9f9', maxWidth: '100%'}}>VIEW RESULTS</h1>
-                        <div style={{margin: '40px auto 20px', fontSize: 24, letterSpacing: 4}}>{this.state.poll.title}</div>
+                        <div style={{margin: '70px auto 20px', fontSize: 24, letterSpacing: 4}}>{this.state.poll.title}</div>
                         <div className='winner-section'>
                             {this.renderWinner()}
                         </div>
