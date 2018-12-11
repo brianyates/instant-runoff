@@ -4,9 +4,6 @@ import LoadingIcon from './LoadingIcon'
 import axios from 'axios';
 import {ordinals} from '../utils';
 
-const winCutoff = 2;
-const resultArray = [["Option 1", [1, 1, 2]], ["Option 1", [1, undefined, undefined]], ["Option 1", [1, undefined, undefined]]];
-
 class PollResults extends Component{
     state = {
         poll: null,
@@ -115,7 +112,7 @@ class PollResults extends Component{
                                 <td style={{letterSpacing: 2, fontWeight: 'bold'}} colSpan={resultArray[0][1].length + 1}>Vote Counts by Elimination Round</td>
                             </tr>
                             <tr>
-                                <td className='option-cell' style={{fontWeight: 'normal'}}>OPTIONS</td>
+                                <td className='round-cell' style={{fontWeight: 'normal'}}>OPTIONS</td>
                                 {resultArray[0][1].map( (res, i) => {
                                     return <td className='round-cell' key={`round-cell${i}`}>Round {i+1}</td>
                                 })}
@@ -133,7 +130,7 @@ class PollResults extends Component{
                                                 return <td key={key} className='elimination-cell'>{cell}</td>
                                             }
                                             else{
-                                                return <td key={key}>{cell || '-'}</td>
+                                                return <td key={key}>{cell === 0 ? 0 : (cell || '-')}</td>
                                             }
                                         })}
                                     </tr>
@@ -156,18 +153,18 @@ class PollResults extends Component{
         else if(this.state.poll){
             return (<div className='text-center'>
                         <h1 style={{borderBottom: '1px solid #f9f9f9', maxWidth: '100%'}}>VIEW RESULTS</h1>
-                        <div style={{margin: '70px auto 20px', fontSize: 24, letterSpacing: 4}}>{this.state.poll.title}</div>
+                        <div style={{margin: '50px auto 30px', fontSize: 24, letterSpacing: 3, maxWidth: 600}}>{this.state.poll.title}</div>
                         <div className='winner-section'>
                             {this.renderWinner()}
-                        </div>
-                        <div>
-                            {this.renderResultsTable()}
                         </div>
                         <div className='progress box-shadow'>
                             <span>{((this.state.poll.votesReceived/this.state.poll.totalVoters)*100).toFixed(0)}% votes received</span>
                             <div className='progress-bar-container' style={{width: `${(this.state.poll.votesReceived/this.state.poll.totalVoters)*100}%`}}>
                                 <div className='progress-bar'></div>
                             </div>
+                        </div>
+                        <div>
+                            {this.renderResultsTable()}
                         </div>
                         {this.renderVoters()}
                         {this.renderPendingVoters()}

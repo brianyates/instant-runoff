@@ -1,6 +1,6 @@
 import React from 'react';
 
-const SuccessModal = ({pollID}) => {
+const PollSuccessModal = ({pollID}) => {
     return(
         <div>
             <div className={`text-center modal-backdrop open`}>
@@ -21,4 +21,4 @@ const SuccessModal = ({pollID}) => {
     )
 }
 
-export default SuccessModal;
+export default PollSuccessModal;

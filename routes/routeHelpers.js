@@ -15,10 +15,6 @@ const calculateWinner = poll => {
         counts[options[i]] = 0;
         originalOptions[options[i]] = [];
     }
-    //If there is only one voter, return the voter's top choice
-    if(voters.length === 1){
-        return ([voters[0].selections[0], originalOptions]);
-    }
 
     while(winner === null && votes[0].length > 0){
         //Initialize the vote counts of each option to 0.
