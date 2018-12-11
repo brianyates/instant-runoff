@@ -20,7 +20,7 @@ const getItemStyle = (isDragging, draggableStyle) => ({
 });
 
 const getListStyle = (isDraggingOver, itemLength) => ({
-    background: isDraggingOver ? '#aaa' : '#777',
+    background: isDraggingOver ? '#bbb' : '#777',
     padding: 10,
     width: '100%',
     height: (110 * itemLength) + 10,
@@ -28,11 +28,11 @@ const getListStyle = (isDraggingOver, itemLength) => ({
 });
 
 class PollDroppable extends Component{
-    renderPlaceholders = () => {
+    renderPlaceholders = (dragValue) => {
         let placeholders = [];
         for (let i = 0; i < this.props.itemLength; i++){
             placeholders.push(
-                <div className='item-placeholder' key={`ph-${i}`} style={{display: this.props.items.length > i ? 'none': 'flex', top: i * 110 + 10}}>
+                <div className='item-placeholder' key={`ph-${i}`} style={{display: this.props.items.length + dragValue > i ? 'none': 'flex', top: i * 110 + 10}}>
                     Drag your {ordinals[i]} choice here
                 </div>
             )
@@ -65,7 +65,7 @@ class PollDroppable extends Component{
                             )}
                         </Draggable>
                     ))}
-                    {this.props.droppableId==='droppable2' && this.renderPlaceholders()}
+                    {this.props.droppableId==='droppable2' && this.renderPlaceholders(snapshot.isDraggingOver ? 1 : 0)}
                     {provided.placeholder}
                 </div>
             )}
