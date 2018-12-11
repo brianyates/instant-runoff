@@ -152,8 +152,8 @@ class PollResults extends Component{
         }
         else if(this.state.poll){
             return (<div className='text-center'>
-                        <h1 style={{borderBottom: '1px solid #f9f9f9', maxWidth: '100%'}}>VIEW RESULTS</h1>
-                        <div style={{margin: '50px auto 30px', fontSize: 24, letterSpacing: 3, maxWidth: 600}}>{this.state.poll.title}</div>
+                        <h1 style={{borderBottom: '1px solid #f9f9f9', maxWidth: '100%'}}>POLL RESULTS</h1>
+                        <div style={{margin: '50px auto 30px', fontSize: 22, letterSpacing: 3, maxWidth: 600}}>{this.state.poll.title}</div>
                         <div className='winner-section'>
                             {this.renderWinner()}
                         </div>
