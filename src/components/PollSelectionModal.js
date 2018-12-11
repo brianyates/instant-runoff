@@ -51,7 +51,7 @@ class PollSelectionModal extends Component {
                     </div>
                     {this.state.submitting ? <div className='text-right p-5'><LoadingIcon /></div> : (<div className='text-right'>
                         <button onClick={() => handleModalClose()} className='btn btn-white m-10'>Cancel</button>
-                        <button onClick={() => this.handleSubmit()} className='btn btn-orange btn-orange-2 m-10'>Looks good, fire away!</button>
+                        <button onClick={() => this.handleSubmit()} className='btn btn-orange btn-orange-2 m-10'>Looks good!</button>
                     </div>)}
                     {this.state.error && <div style={{color: '#d24425'}} className='text-right p-10'>An error occurred. Please try again later.</div>}
                 </div>

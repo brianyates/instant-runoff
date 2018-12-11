@@ -129,6 +129,13 @@ class PollSelection extends Component {
                 </div>
             )
         }
+        else if (this.state.poll.voted){
+           return(
+                <div>
+                    You have already voted in this poll. <a href={`/poll/${this.pollID}/results`}style={{color: "#fff", textDecoration: "underline"}}>Click here to view the results</a>.
+                </div>
+           )
+        }
         return(
             <div style={{maxWidth: 800, margin: 'auto'}}>
                 <h1 className='text-center' style={{marginBottom: 10}}>{this.state.poll.title}</h1>
