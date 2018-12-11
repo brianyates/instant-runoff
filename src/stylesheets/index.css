@@ -168,6 +168,13 @@ a.link:hover{
   animation-duration: .3s;
   opacity: 1;
 }
+.landing-img{
+  opacity: 0;
+  transition: opacity .3s;
+}
+.landing-img.loaded{
+  opacity: 1;
+}
 .sun-img{
   position: absolute;
   top: -10px;
@@ -246,7 +253,6 @@ a.link:hover{
 }
 .main-container.mc-2{
   background: linear-gradient(35deg, #de9716, #ff6a00);
-  min-height: auto;
   padding: 140px 20px 50px;
 }
 .main-container::before, .main-container.mc-2::before{
