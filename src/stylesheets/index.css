@@ -177,7 +177,7 @@ a.link:hover{
 }
 .sun-img{
   position: absolute;
-  top: -10px;
+  top: -13px;
   right: 40px;
   animation: rotate-img;
   animation-duration: 3s;
@@ -363,7 +363,7 @@ a.link:hover{
 .input-container > .input-label-container > .label.focused{
   color: #e3e3e3;
   font-size: 12px;
-  top: -15px;
+  top: -16px;
 }
 .input-container > .border-container{
   border-top: 1px solid #f5f5f5;

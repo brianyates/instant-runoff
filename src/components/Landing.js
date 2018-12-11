@@ -31,7 +31,7 @@ class Landing extends Component {
                 <Navbar />
                 <div className='main-container mc-2 landing-page-container row'>
                     <div className='landing-col-2 landing-section-1'>
-                        <div style={{maxWidth: 500, margin: 'auto', position: 'relative'}}>
+                        <div style={{maxWidth: 580, margin: 'auto', position: 'relative'}}>
                             <img alt='Sun' src={sunImg} className={`sun-img landing-img${this.imagesLoaded()}`} />
                             <img alt='Voting' src={landingImg} width='100%' className={`landing-img${this.imagesLoaded()}`}/>
                             <img id='landing-img-1' alt="Loading" src={sunImg} width='50px' style={{display: 'none'}} onLoad={() => this.img1Loaded()}/>
