@@ -5,9 +5,9 @@ const vectors = {
         viewBox: '0 0 448 512'}
 };
 
-const Icon = ({color, icon, width}) =>{
+const Icon = ({color, icon}) =>{
     return(
-        <svg aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg" viewBox={vectors[icon].viewBox} style={{width}}><path fill={color} d={vectors[icon].path}></path></svg>
+        <svg aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg" viewBox={vectors[icon].viewBox} style={{width: 12, height: 12, marginLeft: -5}}><path fill={color} d={vectors[icon].path}></path></svg>
     )
 }
 

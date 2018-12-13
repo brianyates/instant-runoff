@@ -155,7 +155,7 @@ class PollNew extends Component {
                             style={{marginTop: -20}}
                             className={`float-left btn btn-white${this.isDisabled() ? ' disabled': ''}`}
                             disabled={this.isDisabled()}
-                            onClick={() => this.addInput()}><Icon icon='plus' width='10px' color='#333'/> <span>Add Option</span></button>
+                            onClick={() => this.addInput()}><Icon icon='plus' color='#333'/> <span>Add Option</span></button>
                     </div>
                 </div>
             </Fragment>
