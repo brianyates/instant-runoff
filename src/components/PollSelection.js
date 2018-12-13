@@ -7,7 +7,6 @@ import PollSelectionModal from './PollSelectionModal';
 import PollSuccessModal from './PollSuccessModal';
 import LoadingIcon from './LoadingIcon';
 
-// a little function to help us with reordering the result
 const reorder = (list, startIndex, endIndex) => {
     const result = Array.from(list);
     const [removed] = result.splice(startIndex, 1);
@@ -124,8 +123,7 @@ class PollSelection extends Component {
         else if (!this.state.poll){
             return(
                 <div>
-                    <LoadingIcon />
-                    Loading...
+                    <LoadingIcon text='Loading...' />
                 </div>
             )
         }

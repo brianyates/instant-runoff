@@ -173,7 +173,7 @@ class PollResults extends Component{
         }
         return (
             <div className='p-10 text-center'>
-                <LoadingIcon classOption='loading-2' />
+                <LoadingIcon text='Loading...' />
             </div>
         )
     }

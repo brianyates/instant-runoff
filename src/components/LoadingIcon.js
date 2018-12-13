@@ -1,15 +1,15 @@
 import React,{Fragment} from 'react';
 
-const LoadingIcon = ({classOption}) => {
+const LoadingIcon = ({text}) => {
     return(
         <Fragment>
-            <div className={`${classOption || 'loading-container'}`} alt="Loading...">
+            <div className='loading-container' alt="Loading...">
                 <div></div>
                 <div></div>
                 <div></div>
                 <div></div>
             </div>
-            {classOption && <div className='p-10'>Loading...</div>}
+            <div className='p-10'>{text}</div>}
         </Fragment>
     )
 }
