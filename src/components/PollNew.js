@@ -64,7 +64,8 @@ class PollNew extends Component {
     handleSuccess = pollID => {
         this.setState({pollID, modalStatus: 'closed'})
     }
-    addInput = () => {
+    addInput = event => {
+        event.preventDefault();
         this.setState({inputCount: this.state.inputCount+1});
         this.submitBtn.scrollIntoView({ behavior: "smooth" });
     }
@@ -155,7 +156,7 @@ class PollNew extends Component {
                             style={{marginTop: -20}}
                             className={`float-left btn btn-white${this.isDisabled() ? ' disabled': ''}`}
                             disabled={this.isDisabled()}
-                            onClick={() => this.addInput()}><Icon icon='plus' color='#333'/> <span>Add Option</span></button>
+                            onClick={e => this.addInput(e)}><Icon icon='plus' color='#333'/> <span>Add Option</span></button>
                     </div>
                 </div>
             </Fragment>
