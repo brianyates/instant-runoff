@@ -256,7 +256,7 @@ a.link:hover{
   padding: 10px;
 }
 .main-container.mc-2{
-  background: linear-gradient(35deg, #de9716, #ff6a00);
+  background: linear-gradient(35deg, #f9d423, #ff4e50);
   padding: 140px 20px 50px;
 }
 .main-container::before, .main-container.mc-2::before{
