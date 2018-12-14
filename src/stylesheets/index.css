@@ -256,7 +256,7 @@ a.link:hover{
   padding: 10px;
 }
 .main-container.mc-2{
-  background: linear-gradient(35deg, #f9d423, #ff4e50);
+  background: linear-gradient(45deg, #f9d423, #ff4e50);
   padding: 140px 20px 50px;
 }
 .main-container::before, .main-container.mc-2::before{
@@ -475,6 +475,10 @@ a.link:hover{
 }
 
 @media all and (max-width: 850px){
+  .main-container.mc-2{
+    background: linear-gradient(45deg, #ff4e50, #f9d423);
+    padding: 20px 20px 50px;
+  }
   .landing-col-2{
     width: 100%;
   }
@@ -496,9 +500,6 @@ a.link:hover{
   .landing-small-text{
     font-size: 22px;
     padding-bottom: 30px;
-  }
-  .main-container.mc-2{
-    padding: 20px 20px 50px;
   }
   .landing-p{
     font-size: 16px;
