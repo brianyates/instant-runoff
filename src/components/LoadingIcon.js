@@ -9,7 +9,7 @@ const LoadingIcon = ({text}) => {
                 <div></div>
                 <div></div>
             </div>
-            <div className='p-10'>{text}</div>}
+            <div className='p-10'>{text}</div>
         </Fragment>
     )
 }
