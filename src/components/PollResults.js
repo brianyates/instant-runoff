@@ -105,7 +105,7 @@ class PollResults extends Component{
         if(this.state.poll.winner){
             const{resultArray, winCutoff} = this.state.poll;
             return(
-                <div style={{margin: 'auto', maxWidth: 1200, overflowX: 'scroll'}}>
+                <div style={{margin: 'auto', maxWidth: 1200, overflowX: 'auto'}}>
                     <table className='result-table'>
                         <tbody>
                             <tr>
